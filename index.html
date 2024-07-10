@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instaloader</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instaloader</title>
 </head>
 <body>
-    <h1>Welcome to Instaloader</h1>
-    <p>This is a simple setup for Instaloader.</p>
+  <h1>Download Instagram Videos</h1>
+  <input type="text" id="username" placeholder="Enter Instagram username">
+  <button onclick="downloadVideos()">Download</button>
+
+  <script>
+    async function downloadVideos() {
+      const username = document.getElementById('username').value;
+      const response = await fetch(`https://your-worker-url.workers.dev?username=${username}`);
+      const data = await response.json();
+      console.log(data);
+    }
+  </script>
 </body>
 </html>
